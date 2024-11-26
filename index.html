@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<title>LL - Lanuage Learning</title>
+</head>
+
+<body>
+	<header>
+		<div class="header_items"></div>
+		<div class="header_items">
+			<h1>Learning</h1>
+		</div>
+		<div class="spisok">
+			<img src="images/flag_eng.png" alt="404">
+		</div>
+	</header>
+
+	<article class="container">
+		<section class="lesson">
+
+			<!-- Режим перевода -->
+			<div class="language1">
+				<input type="text" id="text" placeholder="Введите текст">
+			</div>
+			<div class="language2">
+				<img src="images/icon_audio.png" alt="404" onclick="speaking()">
+			</div>
+
+		</section>
+		<section class="rejimi">
+			<div class="rejcont">
+				<div class="rejim a0"><p>Переводчик</p></div>
+				<div class="rejim a1"><p>Произношение</p></div>
+			</div>
+			<div class="rejcont">
+				<div class="rejim a2"><p>Грамматика</p></div>
+				<div class="rejim a3"><p>Угадайка</p></div>
+			</div>
+		</section>
+	</article>
+
+	<nav id="toolbar">
+		<div class="tool main_tool">
+			<div class="lool_ico main_tool"></div>
+			<p class="tool_name">Words</p>
+		</div>
+		<a href="tests.html" class="tool">
+			<div class="lool_ico"></div>
+			<p class="tool_name">Tests</p>
+		</a>
+		<a href="profile.html" class="tool">
+			<div class="lool_ico"></div>
+			<p class="tool_name">Profile</p>
+		</a>
+	</nav>
+
+	<script type="text/javascript">
+
+		function PlayAudio(path) {
+			var audioElement = document.createElement('audio');
+      		audioElement.setAttribute('src', path);
+      		audioElement.play();
+		}
+		function Audio() {
+			PlayAudio('audio/privet.mp3')
+		}
+
+		function speaking() 
+		{
+			const synth = window.speechSynthesis;
+			const textInput = document.querySelector('#text-input');
+			const speakButton = document.querySelector('#speak-button');
+			speakButton.addEventListener('click', () => {
+				const utterance = new SpeechSynthesisUtterance(textInput.value);
+				synth.speak(utterance);
+			});
+
+
+    		// let U = new SpeechSynthesisUtterance();
+    		// let text0 = document.getElementById('text').value;
+    		// U.text = text0;
+    		// speechSynthesis.speak(U);
+		}
+
+		
+
+	</script>
+</body>
+</html>
